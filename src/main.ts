@@ -1,20 +1,30 @@
+function changeValue(value: number, limit: number): number {
+  let result = value%limit
+  if (result<0) {
+    return result+limit
+  } else {
+    return result
+  }
+}
+
 function evaluate(data: string) {
   const tapeSize = 10
+  const limit = 256
   const tape = new Array(tapeSize).fill(0)
   let cursor = 0
   for (const c of data) {
     switch (c) {
       case '>':
-        cursor = (cursor + 1) % tapeSize
+        cursor = changeValue(cursor+1, tapeSize)
         break;
       case '<':
-        cursor = cursor - 1
+        cursor = changeValue(cursor-1, tapeSize)
         break;
       case '+':
-        tape[cursor] += 1
+        tape[cursor] = changeValue(tape[cursor]+1, limit)
         break;
       case '-':
-        tape[cursor] -= 1
+        tape[cursor] = changeValue(tape[cursor]-1, limit)
       default:
         break;
     }
@@ -24,4 +34,4 @@ function evaluate(data: string) {
 }
 
 
-evaluate("+++>>+++>>+++++--<++isso aqui ele não conta");
+evaluate("+++>>+++>>+++++--<++>>--isso aqui ele não conta");
