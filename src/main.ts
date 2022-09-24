@@ -37,8 +37,7 @@ function tokenize(data: string): IHash {
   return table
 }
 
-function evaluate(data: string) {
-  const tapeSize = 1000
+function evaluate(data: string, tapeSize: number = 1000) {
   const limit = 256
   const tape = new Array(tapeSize).fill(0)
   let loopTable = tokenize(data)
@@ -68,12 +67,15 @@ function evaluate(data: string) {
           i = loopTable[i]
         }
         break;
+      case '.':
+        let char = String.fromCharCode(tape[cursor])
+        process.stdout.write(char)
+        break;
       default:
         break;
     }
-
   }
-  console.log(tape)
+  console.log('')
 }
 
 
