@@ -20,7 +20,7 @@
     "bfck": "./build/main.js"
   },
   "dependencies": {
-    "brainf_ck": "file:/home/gui/Documents/projects/brainf_ck++",
+    "brainf_ck": "/home/gui/Documents/projects/brainf_ck++",
     "yargs": "^17.5.1"
   }
 }

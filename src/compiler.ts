@@ -30,7 +30,7 @@ export namespace BF {
     return table;
   }
 
-  export function evaluate(data: string, tapeSize: number = 1000) {
+  export function evaluate(data: string, tapeSize: number = 5000) {
     const limit = 256;
     const tape = new Array(tapeSize).fill(0);
     let loopTable = tokenize(data);
