@@ -2,7 +2,7 @@
   "name": "brainf_ck",
   "version": "0.1.0",
   "description": "Brainfuck interpreter",
-  "main": "index.js",
+  "main": "main.js",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.7.19",
@@ -14,5 +14,11 @@
     "build": "tsc",
     "dev": "ts-node ./src/main.ts",
     "start": "node ./build/main.js"
+  },
+  "bin": {
+    "bfck": "./build/main.js"
+  },
+  "dependencies": {
+    "brainf_ck": "file:/home/gui/Documents/projects/brainf_ck++"
   }
 }
